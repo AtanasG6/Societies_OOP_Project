@@ -9,7 +9,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Consumable : IConsumable
+    public abstract class Consumable : IConsumable
     {
         private decimal _totalPrice;
         public decimal TotalPrice 

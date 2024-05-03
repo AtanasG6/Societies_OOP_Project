@@ -10,31 +10,25 @@
 
     public interface IHuman
     {
-        int Id { get; set; }
-
-        string Name { get; set; }
-
-        int Age { get; set; }
-
-        GenderType Gender { get; set; }
-
-        ReligionType Religion { get; set; }
-        
-        RaceType Race { get; set; }
-
-        HairColorType HairColor { get; set; }
-
-        EyesColorType EyesColor { get; set; }
-
-        FaceShapeType FaceShape { get; set; }
-
-        decimal MoneyInEuro { get; set; }
-
+        int Id { get; }
+        string Name { get; }
+        int Age { get; }
+        GenderType Gender { get; }
+        ReligionType Religion { get; }        
+        RaceType Race { get;  }
+        HairColorType HairColor { get; }
+        EyesColorType EyesColor { get; }
+        FaceShapeType FaceShape { get; }
+        decimal MoneyInEuro { get; }
+        int VitalityLevel { get; set; }
         int StarvationLevel { get; set; }
+        int ThirstLevel {  get; set; }
 
         void Eat(Food food);
-
-        void Drink();
-
+        void Drink(Beverage beverage);
+        void Work(int hours);
+        void Sleep(int hours);
+        void Rest(int minutes);
+        decimal Pay(decimal amountToBePaid);
     }
 }

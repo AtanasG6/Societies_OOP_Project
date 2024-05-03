@@ -10,6 +10,6 @@
 
     public class Food : Consumable
     {
-        public int PortionSizeInGrams { get; set; }
+
     }
 }
