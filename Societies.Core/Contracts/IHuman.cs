@@ -1,6 +1,7 @@
 ﻿namespace Societies.Core.Contracts
 {
     using Societies.Core.Infrastructure.Enumerations.Human;
+    using Societies.Core.Models.Common;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -29,6 +30,11 @@
 
         decimal MoneyInEuro { get; set; }
 
-        void Eat();
+        int StarvationLevel { get; set; }
+
+        void Eat(Food food);
+
+        void Drink();
+
     }
 }

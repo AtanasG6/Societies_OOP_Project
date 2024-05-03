@@ -8,8 +8,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Food : Consumable
+    public class Beverage : Consumable
     {
-        public int PortionSizeInGrams { get; set; }
+
     }
 }
