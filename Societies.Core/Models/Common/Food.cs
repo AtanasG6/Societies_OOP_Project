@@ -1,4 +1,4 @@
-﻿namespace Societies.ConsoleClient
+﻿namespace Societies.Core.Models.Common
 {
     using System;
     using System.Collections.Generic;
@@ -6,10 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class StartUp
+    public class Food
     {
-        static void Main()
-        {
-        }
     }
 }
