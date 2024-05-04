@@ -82,6 +82,22 @@
         public decimal MoneyInEuro
         {
             get { return this.moneyInEuro; }
+            private set 
+            {
+                if (value < ValidationConstants.MoneyInEuroMinValue)
+                {
+                    throw new ArgumentOutOfRangeException("Insufficient money");   
+                }
+                else if (value > ValidationConstants.MoneyInEuroMaxValue)
+                {
+                    this.moneyInEuro = ValidationConstants.MoneyInEuroMaxValue;
+                }
+                else
+                {
+                    this.moneyInEuro = value;
+                }
+                     
+             }
         }
         public int StarvationLevel
         {
@@ -90,18 +106,33 @@
         public int VitalityLevel
         {
             get { return this.vitalityLevel; }
+            private set
+            {
+                if (value < ValidationConstants.VitalityLevelMinValue)
+                {
+                    this.vitalityLevel = ValidationConstants.VitalityLevelMinValue; 
+                }
+                else if (value > ValidationConstants.VitalityLevelMaxValue)
+                {
+                    this.vitalityLevel = ValidationConstants.VitalityLevelMaxValue;
+                }
+                else
+                {
+                    this.vitalityLevel = value;
+                }
+            }
         }
         public int ThirstLevel
         {
             get { return this.thirstLevel; }
         }
 
-        public void Drink(Beverage beverage)
+        public void Eat(ICollection<IFood> food)
         {
             throw new NotImplementedException();
         }
 
-        public void Eat(Food food)
+        public void Drink(ICollection<IBeverage> beverage)
         {
             throw new NotImplementedException();
         }
@@ -148,5 +179,11 @@
 
             return builder.ToString();
         }
+
+        public override int GetHashCode()
+        {
+            return this.id.GetHashCode();
+        }
+
     }
 }

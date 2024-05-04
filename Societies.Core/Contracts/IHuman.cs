@@ -24,8 +24,8 @@
         int StarvationLevel { get; }
         int ThirstLevel {  get; }
 
-        void Eat(Food food);
-        void Drink(Beverage beverage);
+        void Eat(ICollection<IFood> food);
+        void Drink(ICollection<IBeverage> beverage);
         void Work(int hours);
         void Sleep(int hours);
         void Rest(int minutes);
