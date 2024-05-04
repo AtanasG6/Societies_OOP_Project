@@ -28,6 +28,9 @@
 
             Console.WriteLine(human);
 
+            var student = new Student(DataGenerator.GenerateMaleName(), DataGenerator.GenerateAge());
+            student.GoToSchool();
+            Console.WriteLine(student.ToString());
         }
     }
 }
