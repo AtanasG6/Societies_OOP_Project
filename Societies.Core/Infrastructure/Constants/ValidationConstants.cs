@@ -20,5 +20,8 @@
 
         public const int ThirstLevelMaxValue = 100;
         public const int ThirstLevelMinValue = 0;
+
+        public const decimal MoneyInEuroMaxValue = 9999999;
+        public const decimal MoneyInEuroMinValue = 0;
     }
 }

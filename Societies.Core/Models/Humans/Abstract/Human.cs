@@ -13,6 +13,7 @@
 
     public abstract class Human : IHuman
     {
+        private readonly int id;
         private readonly string name;
         private readonly int age;
         private readonly HairColorType hairColor;
@@ -26,6 +27,14 @@
         private int starvationLevel;
         private decimal moneyInEuro;
 
+        private Human()
+        {
+            this.vitalityLevel = ValidationConstants.VitalityLevelMaxValue;
+            this.starvationLevel = ValidationConstants.StarvationLevelMaxValue;
+            this.thirstLevel = ValidationConstants.ThirstLevelMaxValue;
+            this.moneyInEuro = ValidationConstants.MoneyInEuroMinValue;
+        }
+
         protected Human(
             string name,
             int age,
@@ -35,17 +44,18 @@
             RaceType race,
             GenderType gender,
             ReligionType religion
-            )
+            ) 
+            : this()
         {
-            this.Id = DataGenerator.GenerateUniqueId();
-            this.Name = name;
-            this.Age = age;
-            this.HairColor = hairColor;
-            this.FaceShape = faceShape;
-            this.EyesColor = eyesColor;
-            this.Religion = religion;
-            this.Gender = gender;
-            this.Race = race;  
+            this.id = DataGenerator.GenerateUniqueId();
+            this.name = name;
+            this.age = age;
+            this.hairColor = hairColor;
+            this.faceShape = faceShape;
+            this.eyesColor = eyesColor;
+            this.religion = religion;
+            this.gender = gender;
+            this.race = race;  
         }
 
 
@@ -56,13 +66,35 @@
         public EyesColorType EyesColor { get; }
         public FaceShapeType FaceShape { get; }
 
-        public int Id { get; }
-        public string Name { get; }
-        public int Age { get; }
-        public decimal MoneyInEuro { get; }
-        public int StarvationLevel { get; }
-        public int VitalityLevel { get; }
-        public int ThirstLevel { get; }
+        public int Id 
+        {
+            get { return this.id; } 
+        }
+        public string Name
+        {
+            get { return this.name; }
+        }
+
+        public int Age
+        {
+            get { return this.age; }
+        }
+        public decimal MoneyInEuro
+        {
+            get { return this.moneyInEuro; }
+        }
+        public int StarvationLevel
+        {
+            get { return this.starvationLevel; }
+        }
+        public int VitalityLevel
+        {
+            get { return this.vitalityLevel; }
+        }
+        public int ThirstLevel
+        {
+            get { return this.thirstLevel; }
+        }
 
         public void Drink(Beverage beverage)
         {
@@ -99,7 +131,7 @@
             var builder = new StringBuilder(500);
 
             builder.AppendLine(new string('=', GlobalConstants.DelimiterCount));
-            builder.AppendLine($"Id: {this.Id}");
+            builder.AppendLine($"Id: {this.id}");
             builder.AppendLine($"Name: {this.name}");
             builder.AppendLine($"Age: {this.age}");
             builder.AppendLine($"Vitality level: {this.vitalityLevel}/{ValidationConstants.VitalityLevelMaxValue}");
@@ -111,7 +143,7 @@
             builder.AppendLine($"Face shape: {this.faceShape}");
             builder.AppendLine($"Eyes color: {this.eyesColor}");
             builder.AppendLine($"Hair color: {this.hairColor}");
-            builder.AppendLine($"Money in euro: {(char)8364}{this.moneyInEuro}");
+            builder.AppendLine($"Money in euro: ${this.moneyInEuro}");
             builder.AppendLine(new string('=', GlobalConstants.DelimiterCount));
 
             return builder.ToString();

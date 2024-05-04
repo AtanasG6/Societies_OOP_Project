@@ -2,6 +2,7 @@
 {
     using Societies.Core.Contracts;
     using Societies.Core.Infrastructure.Enumerations.Human;
+    using Societies.Core.Infrastructure.Utils;
     using Societies.Core.Models.Humans;
     using Societies.Core.Models.Humans.Abstarct;
     using System;
@@ -15,8 +16,8 @@
         static void Main()
         {
             var human = new Waiter(
-                "Gosho",
-                21,
+                DataGenerator.GenerateMaleName(),
+                DataGenerator.GenerateAge(),
                 HairColorType.Blue,
                 EyesColorType.Brown,
                 FaceShapeType.Heart,
