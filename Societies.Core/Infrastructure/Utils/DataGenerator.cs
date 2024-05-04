@@ -12,7 +12,7 @@
 
         static DataGenerator()
         {
-            counter = 1;
+            counter = 0;
         }
 
         public static int GenerateUniqueId()

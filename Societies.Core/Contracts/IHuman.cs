@@ -20,9 +20,9 @@
         EyesColorType EyesColor { get; }
         FaceShapeType FaceShape { get; }
         decimal MoneyInEuro { get; }
-        int VitalityLevel { get; set; }
-        int StarvationLevel { get; set; }
-        int ThirstLevel {  get; set; }
+        int VitalityLevel { get; }
+        int StarvationLevel { get; }
+        int ThirstLevel {  get; }
 
         void Eat(Food food);
         void Drink(Beverage beverage);
